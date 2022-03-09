@@ -1,33 +1,35 @@
-const SPEED = 0.02
+// const SPEED = 0.02
 
-export default class Paddle {
+// export default class Paddle {
  
-  constructor(paddleElem: JSX.Element, paddlePosition: Number, ref) {
-    this.paddleElem = paddleElem;
-    this.reset();
-    this.paddlePosition=paddlePosition;
-    this.ref = ref
-  }
+//   constructor(paddleElem: JSX.Element, paddlePosition: Number, ref) {
+//     this.paddleElem = paddleElem;
+//     this.reset();
+//     this.paddlePosition=paddlePosition;
+//     this.ref = ref
+//   }
 
-  get position() {
-    return parseFloat(
-      this.paddlePosition
-    )
-  }
+//   get position() {
+//     return parseFloat(
+//       this.paddlePosition
+//     )
+//   }
 
-  set position(value) {
-    this.paddlePosition
-  }
+//   set position(value) {
+//     this.paddlePosition
+//   }
 
-  rect() {
-    return this.ref.current.getBoundingClientRect()
-  }
+//   rect() {
+//     return this.ref.current.getBoundingClientRect()
+//   }
 
-  reset() {
-    this.position = 50
-  }
+//   reset() {
+//     this.position = 50
+//   }
 
-  update(delta: number, ballHeight: number) {
-    this.position += SPEED * delta * (ballHeight - this.position)
-  }
-}
+//   update(delta: number, ballHeight: number) {
+//     this.position += SPEED * delta * (ballHeight - this.position)
+//   }
+// }
+
+export {}

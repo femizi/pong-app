@@ -1,37 +1,28 @@
-import React from 'react'
-import { useRef, useState } from "react";
-
-const NewPaddle1 = ({ paddlePosition1}) => {
-  const SPEED = 0.02
-  const player1ref = useRef();
-
-
-  function position(value) {
-    paddlePosition1 = value;
-  }
-
- function rect() {
-    return player1ref.current.getBoundingClientRect();
-  }
-
- function reset() {
-    paddlePosition1 = 50;
-  }
-
- function update(delta, ballHeight) {
-    paddlePosition1 += SPEED * delta * (ballHeight - paddlePosition1);
-  }
-
-
-
-  return (
-    <div
-      ref={player1ref}
-      className="paddle left"
-      id="player-paddle"
-      style={{ top: `calc(${paddlePosition1} * 1vh)` }}
-    ></div>
-  )
-}
-
+import React, { useRef } from 'react';
+const NewPaddle1 = (props = {
+  onKeyDown: Function.prototype,
+  tabIndex: ""
+}) => {
+  const propTypes = useRef({
+    x: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
+    y: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
+    onKeyDown: propTypes.func,
+    tabIndex: propTypes.string
+  });
+  const defaultProps = useRef({
+    onKeyDown: Function.prototype,
+    tabIndex: ""
+  });
+  return <div role="button" onKeyDown={props.onKeyDown} className="Paddle" tabIndex={props.tabIndex} style={{
+    width: "15px",
+    height: "150px",
+    position: "absolute",
+    backgroundColor: "#ffffff",
+    opacity: "0.7",
+    top: `${props.y}px`,
+    left: `${props.x}px`
+  }}>
+           <input type="text" className="paddleInput" />
+        </div>;
+};
 export default NewPaddle1

@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react';
 
-const Score = ({playerScore, playerScore2}) => {
-  return (
-    <div className="score">
-        <div id="player-score">{playerScore}</div>
-        <div id="computer-score">{playerScore2} </div>
-      </div>
-  )
-}
+const Score = (props = {
+  total: 0
+}) => {
+  const propTypes = useRef({
+    total: propTypes.number,
+    position: propTypes.oneOf(["left", "right"]).isRequired,
+    player: propTypes.string.isRequired
+  });
+  const defaultProps = useRef({
+    total: 0
+  });
+  return <div className={props.position}>
+           <h2>Player {props.player}</h2>
+           <h2>{props.total}</h2>
+        </div>;
+};
+
 
 export default Score

@@ -1,6 +1,13 @@
 import React from 'react'
-import { useRef, useState } from "react";
-const NewPaddle2 = ({paddlePosition2 }) => {
+import { useRef, useState,useEffect } from "react";
+const NewPaddle2 = ({paddlePosition2, setpaddle2Rect, paddleRect }) => {
+  // useEffect(() => {
+    
+  //   // setpaddle2Rect(player2ref.current.getBoundingClientRect())
+    
+
+  // },[paddlePosition2] )
+  
     const player2ref = useRef();
   return (
     <div
